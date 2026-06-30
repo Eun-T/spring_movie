@@ -16,5 +16,5 @@ public class MemberVO {
     private String email;
     private Date regDate;
     private Date updateDate;
-    private List<AuthVO> authList; //
+    private List<AuthVO> authList; //username, auth(role)
 }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.scoula.movie.account.mapper.UserDetailsMapper">
+
+    <resultMap id="memberMap" type="org.scoula.movie.account.domain.MemberVO">
+        <id property="id" column="id"></id>
+        <result property="username" column="username"></result>
+        <result property="password" column="password"></result>
+        <result property="name" column="name"></result>
+        <collection property="authList" ofType="AuthVO">
+            <result property="auth" column="auth"></result>
+        </collection>
+    </resultMap>
+
+    <select id="get" parameterType="String" resultMap="memberMap">
+        select m.id, m.username, m.password, m.name, a.auth from member m
+        left join auth a
+        on a.member_id = m.id
+        where m.username = #{username}
+    </select>
+
+</mapper>

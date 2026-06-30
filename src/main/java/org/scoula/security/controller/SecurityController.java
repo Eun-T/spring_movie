@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import java.security.Principal;
 
-@Controller
-@RequestMapping("/security")
+//@Controller
+//@RequestMapping("/security")
 @Log4j2
 class SecurityController {
 

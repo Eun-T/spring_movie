@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataSource name="@localhost">
+<dataSource name="root@localhost">
   <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.54">
     <root id="1">
       <DefaultAuthPlugin>caching_sha2_password</DefaultAuthPlugin>
@@ -55,9 +55,6 @@
 |root||root|localhost|INNODB_REDO_LOG_ENABLE|G
 |root||root|localhost|INSERT|G
 |root||root|localhost|LOCK TABLES|G
-|root||mysql.infoschema|localhost|OPTIMIZE_LOCAL_TABLE|G
-|root||mysql.session|localhost|OPTIMIZE_LOCAL_TABLE|G
-|root||mysql.sys|localhost|OPTIMIZE_LOCAL_TABLE|G
 |root||root|localhost|OPTIMIZE_LOCAL_TABLE|G
 |root||root|localhost|PASSWORDLESS_USER_ADMIN|G
 |root||mysql.session|localhost|PERSIST_RO_VARIABLES_ADMIN|G
@@ -99,24 +96,96 @@
 |root||root|localhost|UPDATE|G
 |root||root|localhost|XA_RECOVER_ADMIN|G
 |root||root|localhost|grant option|G
+employeedb|schema||ket||ALTER|G
+employeedb|schema||ket||ALTER ROUTINE|G
+employeedb|schema||ket||CREATE|G
+employeedb|schema||ket||CREATE ROUTINE|G
+employeedb|schema||ket||CREATE TEMPORARY TABLES|G
+employeedb|schema||ket||CREATE VIEW|G
+employeedb|schema||ket||DELETE|G
+employeedb|schema||ket||DROP|G
+employeedb|schema||ket||EVENT|G
+employeedb|schema||ket||EXECUTE|G
+employeedb|schema||ket||INDEX|G
+employeedb|schema||ket||INSERT|G
+employeedb|schema||ket||LOCK TABLES|G
+employeedb|schema||ket||REFERENCES|G
+employeedb|schema||ket||SELECT|G
+employeedb|schema||ket||SHOW VIEW|G
+employeedb|schema||ket||TRIGGER|G
+employeedb|schema||ket||UPDATE|G
+jdbc_ex|schema||ket||ALTER|G
 jdbc_ex|schema||scoula||ALTER|G
+jdbc_ex|schema||ket||ALTER ROUTINE|G
 jdbc_ex|schema||scoula||ALTER ROUTINE|G
+jdbc_ex|schema||ket||CREATE|G
 jdbc_ex|schema||scoula||CREATE|G
+jdbc_ex|schema||ket||CREATE ROUTINE|G
 jdbc_ex|schema||scoula||CREATE ROUTINE|G
+jdbc_ex|schema||ket||CREATE TEMPORARY TABLES|G
 jdbc_ex|schema||scoula||CREATE TEMPORARY TABLES|G
+jdbc_ex|schema||ket||CREATE VIEW|G
 jdbc_ex|schema||scoula||CREATE VIEW|G
+jdbc_ex|schema||ket||DELETE|G
 jdbc_ex|schema||scoula||DELETE|G
+jdbc_ex|schema||ket||DROP|G
 jdbc_ex|schema||scoula||DROP|G
+jdbc_ex|schema||ket||EVENT|G
 jdbc_ex|schema||scoula||EVENT|G
+jdbc_ex|schema||ket||EXECUTE|G
 jdbc_ex|schema||scoula||EXECUTE|G
+jdbc_ex|schema||ket||INDEX|G
 jdbc_ex|schema||scoula||INDEX|G
+jdbc_ex|schema||ket||INSERT|G
 jdbc_ex|schema||scoula||INSERT|G
+jdbc_ex|schema||ket||LOCK TABLES|G
 jdbc_ex|schema||scoula||LOCK TABLES|G
+jdbc_ex|schema||ket||REFERENCES|G
 jdbc_ex|schema||scoula||REFERENCES|G
+jdbc_ex|schema||ket||SELECT|G
 jdbc_ex|schema||scoula||SELECT|G
+jdbc_ex|schema||ket||SHOW VIEW|G
 jdbc_ex|schema||scoula||SHOW VIEW|G
+jdbc_ex|schema||ket||TRIGGER|G
 jdbc_ex|schema||scoula||TRIGGER|G
+jdbc_ex|schema||ket||UPDATE|G
 jdbc_ex|schema||scoula||UPDATE|G
+jdbc_test|schema||kim||ALTER|G
+jdbc_test|schema||kim||ALTER ROUTINE|G
+jdbc_test|schema||kim||CREATE|G
+jdbc_test|schema||kim||CREATE ROUTINE|G
+jdbc_test|schema||kim||CREATE TEMPORARY TABLES|G
+jdbc_test|schema||kim||CREATE VIEW|G
+jdbc_test|schema||kim||DELETE|G
+jdbc_test|schema||kim||DROP|G
+jdbc_test|schema||kim||EVENT|G
+jdbc_test|schema||kim||EXECUTE|G
+jdbc_test|schema||kim||INDEX|G
+jdbc_test|schema||kim||INSERT|G
+jdbc_test|schema||kim||LOCK TABLES|G
+jdbc_test|schema||kim||REFERENCES|G
+jdbc_test|schema||kim||SELECT|G
+jdbc_test|schema||kim||SHOW VIEW|G
+jdbc_test|schema||kim||TRIGGER|G
+jdbc_test|schema||kim||UPDATE|G
+ketdb|schema||ket||ALTER|G
+ketdb|schema||ket||ALTER ROUTINE|G
+ketdb|schema||ket||CREATE|G
+ketdb|schema||ket||CREATE ROUTINE|G
+ketdb|schema||ket||CREATE TEMPORARY TABLES|G
+ketdb|schema||ket||CREATE VIEW|G
+ketdb|schema||ket||DELETE|G
+ketdb|schema||ket||DROP|G
+ketdb|schema||ket||EVENT|G
+ketdb|schema||ket||EXECUTE|G
+ketdb|schema||ket||INDEX|G
+ketdb|schema||ket||INSERT|G
+ketdb|schema||ket||LOCK TABLES|G
+ketdb|schema||ket||REFERENCES|G
+ketdb|schema||ket||SELECT|G
+ketdb|schema||ket||SHOW VIEW|G
+ketdb|schema||ket||TRIGGER|G
+ketdb|schema||ket||UPDATE|G
 performance_schema|schema||mysql.session|localhost|SELECT|G
 scoula_db|schema||scoula||ALTER|G
 scoula_db|schema||scoula||ALTER ROUTINE|G
@@ -136,25 +205,7 @@ scoula_db|schema||scoula||SELECT|G
 scoula_db|schema||scoula||SHOW VIEW|G
 scoula_db|schema||scoula||TRIGGER|G
 scoula_db|schema||scoula||UPDATE|G
-sys|schema||mysql.sys|localhost|TRIGGER|G
-test_db|schema||scoula||ALTER|G
-test_db|schema||scoula||ALTER ROUTINE|G
-test_db|schema||scoula||CREATE|G
-test_db|schema||scoula||CREATE ROUTINE|G
-test_db|schema||scoula||CREATE TEMPORARY TABLES|G
-test_db|schema||scoula||CREATE VIEW|G
-test_db|schema||scoula||DELETE|G
-test_db|schema||scoula||DROP|G
-test_db|schema||scoula||EVENT|G
-test_db|schema||scoula||EXECUTE|G
-test_db|schema||scoula||INDEX|G
-test_db|schema||scoula||INSERT|G
-test_db|schema||scoula||LOCK TABLES|G
-test_db|schema||scoula||REFERENCES|G
-test_db|schema||scoula||SELECT|G
-test_db|schema||scoula||SHOW VIEW|G
-test_db|schema||scoula||TRIGGER|G
-test_db|schema||scoula||UPDATE|G</Grants>
+sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <ServerVersion>8.4.9</ServerVersion>
     </root>
     <collation id="2" parent="1" name="armscii8_bin">
@@ -1056,16 +1107,16 @@ test_db|schema||scoula||UPDATE|G</Grants>
     <collation id="287" parent="1" name="utf8mb4_zh_0900_as_cs">
       <Charset>utf8mb4</Charset>
     </collation>
-    <schema id="288" parent="1" name="employees">
+    <schema id="288" parent="1" name="boarddb">
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
-    <schema id="289" parent="1" name="func_practice">
+    <schema id="289" parent="1" name="employeedb">
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
-    <schema id="290" parent="1" name="index_speed_test">
+    <schema id="290" parent="1" name="employees">
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
-    <schema id="291" parent="1" name="index_test_simple">
+    <schema id="291" parent="1" name="func_practice">
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="292" parent="1" name="information_schema">
@@ -1074,34 +1125,37 @@ test_db|schema||scoula||UPDATE|G</Grants>
     <schema id="293" parent="1" name="jdbc_ex">
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
-    <schema id="294" parent="1" name="mydb">
+    <schema id="294" parent="1" name="jdbc_test">
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
-    <schema id="295" parent="1" name="mysql">
+    <schema id="295" parent="1" name="ketdb">
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
-    <schema id="296" parent="1" name="normalization_lab">
+    <schema id="296" parent="1" name="menudb">
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
-    <schema id="297" parent="1" name="performance_schema">
-      <CollationName>utf8mb4_0900_ai_ci</CollationName>
-    </schema>
-    <schema id="298" parent="1" name="sakila">
-      <CollationName>utf8mb4_0900_ai_ci</CollationName>
-    </schema>
-    <schema id="299" parent="1" name="scoula_db">
+    <schema id="297" parent="1" name="movie_review_db">
       <AutoIntrospectionLevel>3</AutoIntrospectionLevel>
       <LastIntrospectionLevel>3</LastIntrospectionLevel>
-      <LastIntrospectionLocalTimestamp>2026-06-25.05:24:42</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2026-06-30.07:43:33</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
-    <schema id="300" parent="1" name="shop">
+    <schema id="298" parent="1" name="mydb">
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
-    <schema id="301" parent="1" name="shop2">
+    <schema id="299" parent="1" name="mysql">
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
-    <schema id="302" parent="1" name="shop3">
+    <schema id="300" parent="1" name="performance_schema">
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </schema>
+    <schema id="301" parent="1" name="sakila">
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </schema>
+    <schema id="302" parent="1" name="scoula_db">
+      <AutoIntrospectionLevel>3</AutoIntrospectionLevel>
+      <LastIntrospectionLevel>3</LastIntrospectionLevel>
+      <LastIntrospectionLocalTimestamp>2026-06-30.07:43:16</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="303" parent="1" name="sqldb">
@@ -1113,143 +1167,344 @@ test_db|schema||scoula||UPDATE|G</Grants>
     <schema id="305" parent="1" name="tabledb">
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
-    <schema id="306" parent="1" name="test_db">
+    <schema id="306" parent="1" name="world">
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
-    <schema id="307" parent="1" name="world">
+    <schema id="307" parent="1" name="world2">
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
-    <schema id="308" parent="1" name="world2">
-      <CollationName>utf8mb4_0900_ai_ci</CollationName>
-    </schema>
-    <user id="309" parent="1" name="mysql.infoschema">
+    <user id="308" parent="1" name="ket"/>
+    <user id="309" parent="1" name="kim"/>
+    <user id="310" parent="1" name="mysql.infoschema">
       <CanLogin>0</CanLogin>
       <Host>localhost</Host>
     </user>
-    <user id="310" parent="1" name="mysql.session">
+    <user id="311" parent="1" name="mysql.session">
       <CanLogin>0</CanLogin>
       <Host>localhost</Host>
     </user>
-    <user id="311" parent="1" name="mysql.sys">
+    <user id="312" parent="1" name="mysql.sys">
       <CanLogin>0</CanLogin>
       <Host>localhost</Host>
     </user>
-    <user id="312" parent="1" name="root">
+    <user id="313" parent="1" name="root">
       <Host>localhost</Host>
     </user>
-    <user id="313" parent="1" name="scoula"/>
-    <table id="314" parent="299" name="tbl_board">
+    <user id="314" parent="1" name="scoula"/>
+    <table id="315" parent="297" name="auth">
       <DetailsLevel>3</DetailsLevel>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </table>
-    <table id="315" parent="299" name="tbl_member">
+    <table id="316" parent="297" name="comment">
       <DetailsLevel>3</DetailsLevel>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </table>
-    <table id="316" parent="299" name="tbl_member_auth">
+    <table id="317" parent="297" name="member">
       <DetailsLevel>3</DetailsLevel>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </table>
-    <column id="317" parent="314" name="no">
-      <AutoIncrement>14</AutoIncrement>
+    <table id="318" parent="297" name="review">
+      <DetailsLevel>3</DetailsLevel>
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="319" parent="302" name="tbl_board">
+      <DetailsLevel>3</DetailsLevel>
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="320" parent="302" name="tbl_member">
+      <DetailsLevel>3</DetailsLevel>
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="321" parent="302" name="tbl_member_auth">
+      <DetailsLevel>3</DetailsLevel>
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <column id="322" parent="315" name="id">
+      <AutoIncrement>1</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StoredType>int|0s</StoredType>
+      <StoredType>bigint|0s</StoredType>
     </column>
-    <column id="318" parent="314" name="title">
+    <column id="323" parent="315" name="member_id">
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StoredType>varchar(200)|0s</StoredType>
+      <StoredType>bigint|0s</StoredType>
     </column>
-    <column id="319" parent="314" name="content">
+    <column id="324" parent="315" name="auth">
+      <NotNull>1</NotNull>
       <Position>3</Position>
-      <StoredType>text|0s</StoredType>
+      <StoredType>varchar(50)|0s</StoredType>
     </column>
-    <column id="320" parent="314" name="writer">
+    <foreign-key id="325" parent="315" name="auth_ibfk_1">
+      <ColNames>member_id</ColNames>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>id</RefColNames>
+      <RefTableName>member</RefTableName>
+    </foreign-key>
+    <index id="326" parent="315" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="327" parent="315" name="member_id">
+      <ColNames>member_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="328" parent="315" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="329" parent="316" name="id">
+      <AutoIncrement>1</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>bigint|0s</StoredType>
+    </column>
+    <column id="330" parent="316" name="review_id">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>bigint|0s</StoredType>
+    </column>
+    <column id="331" parent="316" name="member_id">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>bigint|0s</StoredType>
+    </column>
+    <column id="332" parent="316" name="content">
       <NotNull>1</NotNull>
       <Position>4</Position>
-      <StoredType>varchar(200)|0s</StoredType>
+      <StoredType>varchar(300)|0s</StoredType>
     </column>
-    <column id="321" parent="314" name="reg_date">
+    <column id="333" parent="316" name="reg_date">
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <Position>5</Position>
       <StoredType>datetime|0s</StoredType>
     </column>
-    <column id="322" parent="314" name="update_date">
+    <foreign-key id="334" parent="316" name="comment_ibfk_1">
+      <ColNames>review_id</ColNames>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>id</RefColNames>
+      <RefTableName>review</RefTableName>
+    </foreign-key>
+    <foreign-key id="335" parent="316" name="comment_ibfk_2">
+      <ColNames>member_id</ColNames>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>id</RefColNames>
+      <RefTableName>member</RefTableName>
+    </foreign-key>
+    <index id="336" parent="316" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="337" parent="316" name="review_id">
+      <ColNames>review_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="338" parent="316" name="member_id">
+      <ColNames>member_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="339" parent="316" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="340" parent="317" name="id">
+      <AutoIncrement>1</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>bigint|0s</StoredType>
+    </column>
+    <column id="341" parent="317" name="username">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>varchar(50)|0s</StoredType>
+    </column>
+    <column id="342" parent="317" name="password">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </column>
+    <column id="343" parent="317" name="name">
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StoredType>varchar(50)|0s</StoredType>
+    </column>
+    <index id="344" parent="317" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="345" parent="317" name="username">
+      <ColNames>username</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="346" parent="317" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <key id="347" parent="317" name="username">
+      <UnderlyingIndexName>username</UnderlyingIndexName>
+    </key>
+    <column id="348" parent="318" name="id">
+      <AutoIncrement>1</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>bigint|0s</StoredType>
+    </column>
+    <column id="349" parent="318" name="member_id">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>bigint|0s</StoredType>
+    </column>
+    <column id="350" parent="318" name="movie_title">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>varchar(100)|0s</StoredType>
+    </column>
+    <column id="351" parent="318" name="content">
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StoredType>text|0s</StoredType>
+    </column>
+    <column id="352" parent="318" name="rating">
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="353" parent="318" name="reg_date">
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <Position>6</Position>
       <StoredType>datetime|0s</StoredType>
     </column>
-    <index id="323" parent="314" name="PRIMARY">
-      <ColNames>no</ColNames>
+    <foreign-key id="354" parent="318" name="review_ibfk_1">
+      <ColNames>member_id</ColNames>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>id</RefColNames>
+      <RefTableName>member</RefTableName>
+    </foreign-key>
+    <index id="355" parent="318" name="PRIMARY">
+      <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="324" parent="314" name="PRIMARY">
+    <index id="356" parent="318" name="member_id">
+      <ColNames>member_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="357" parent="318" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="325" parent="315" name="username">
+    <column id="358" parent="319" name="no">
+      <AutoIncrement>12</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StoredType>varchar(50)|0s</StoredType>
+      <StoredType>int|0s</StoredType>
     </column>
-    <column id="326" parent="315" name="password">
+    <column id="359" parent="319" name="title">
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StoredType>varchar(128)|0s</StoredType>
+      <StoredType>varchar(200)|0s</StoredType>
     </column>
-    <column id="327" parent="315" name="email">
-      <NotNull>1</NotNull>
+    <column id="360" parent="319" name="content">
       <Position>3</Position>
-      <StoredType>varchar(50)|0s</StoredType>
+      <StoredType>text|0s</StoredType>
     </column>
-    <column id="328" parent="315" name="reg_date">
-      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    <column id="361" parent="319" name="writer">
+      <NotNull>1</NotNull>
       <Position>4</Position>
-      <StoredType>datetime|0s</StoredType>
+      <StoredType>varchar(200)|0s</StoredType>
     </column>
-    <column id="329" parent="315" name="update_date">
+    <column id="362" parent="319" name="reg_date">
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <Position>5</Position>
       <StoredType>datetime|0s</StoredType>
     </column>
-    <index id="330" parent="315" name="PRIMARY">
-      <ColNames>username</ColNames>
+    <column id="363" parent="319" name="update_date">
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <Position>6</Position>
+      <StoredType>datetime|0s</StoredType>
+    </column>
+    <index id="364" parent="319" name="PRIMARY">
+      <ColNames>no</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="331" parent="315" name="PRIMARY">
+    <key id="365" parent="319" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="332" parent="316" name="username">
+    <column id="366" parent="320" name="username">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>varchar(50)|0s</StoredType>
     </column>
-    <column id="333" parent="316" name="auth">
+    <column id="367" parent="320" name="password">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>varchar(128)|0s</StoredType>
+    </column>
+    <column id="368" parent="320" name="email">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>varchar(50)|0s</StoredType>
+    </column>
+    <column id="369" parent="320" name="reg_date">
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <Position>4</Position>
+      <StoredType>datetime|0s</StoredType>
+    </column>
+    <column id="370" parent="320" name="update_date">
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <Position>5</Position>
+      <StoredType>datetime|0s</StoredType>
+    </column>
+    <index id="371" parent="320" name="PRIMARY">
+      <ColNames>username</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="372" parent="320" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="373" parent="321" name="username">
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>varchar(50)|0s</StoredType>
+    </column>
+    <column id="374" parent="321" name="auth">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>varchar(50)|0s</StoredType>
     </column>
-    <foreign-key id="334" parent="316" name="fk_authorities_users">
+    <foreign-key id="375" parent="321" name="fk_authorities_users">
       <ColNames>username</ColNames>
       <RefColNames>username</RefColNames>
       <RefTableName>tbl_member</RefTableName>
     </foreign-key>
-    <index id="335" parent="316" name="PRIMARY">
+    <index id="376" parent="321" name="PRIMARY">
       <ColNames>username
 auth</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="336" parent="316" name="PRIMARY">
+    <key id="377" parent="321" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>

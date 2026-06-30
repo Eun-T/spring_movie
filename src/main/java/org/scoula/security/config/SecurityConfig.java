@@ -3,18 +3,34 @@ package org.scoula.security.config;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.mybatis.spring.annotation.MapperScan;
+import org.scoula.security.filter.AuthenticationErrorFilter;
+import org.scoula.security.filter.JwtAuthenticationFilter;
+import org.scoula.security.filter.JwtUsernamePasswordAuthenticationFilter;
+import org.scoula.security.handler.CustomAccessDeniedHandler;
+import org.scoula.security.handler.CustomAuthenticationEntryPoint;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.csrf.CsrfFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CharacterEncodingFilter;
+import org.springframework.web.filter.CorsFilter;
+import org.springframework.web.filter.OncePerRequestFilter;
 
 @Configuration
 @EnableWebSecurity
@@ -25,6 +41,13 @@ import org.springframework.web.filter.CharacterEncodingFilter;
 public class SecurityConfig  extends WebSecurityConfigurerAdapter {
 
     private final UserDetailsService userDetailsService;
+    private final JwtAuthenticationFilter jwtAuthenticationFilter;
+    private final AuthenticationErrorFilter authenticationErrorFilter;
+    private final CustomAccessDeniedHandler accessDeniedHandler;
+    private final CustomAuthenticationEntryPoint authenticationEntryPoint;
+
+    @Autowired
+    JwtUsernamePasswordAuthenticationFilter jwtUsernamePasswordAuthenticationFilter;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -41,18 +64,68 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
         return encodingFilter;
     }
 
+    @Bean
+//    JWT 방식은 폼로그인과달리Spring Security의기
+//    본인증필터를사용하지않고,
+//    클라이언트→ JWT 토큰→ 커스텀필터
+//            (OncePerRequestFilter 등) → SecurityContext 직접 설정
+    public AuthenticationManager authenticationManager() throws Exception {
+        return super.authenticationManager();
+    }
+
+    @Bean
+    public CorsFilter corsFilter() {
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        CorsConfiguration config = new CorsConfiguration();
+        config.setAllowCredentials(true);
+        config.addAllowedOriginPattern("*");
+        config.addAllowedHeader("*");
+        config.addAllowedMethod("*");
+        source.registerCorsConfiguration("/**", config);
+        return new CorsFilter(source);
+    }
+
+    //시큐리티 적용하고 싶지 않은 요청 주소 등록.
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring().antMatchers("/assets/**", "/*", "/api/member/**");
+    }
+
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        http.addFilterBefore(
-                encodingFilter(),
-                CsrfFilter.class
-        );
+        http.addFilterBefore(encodingFilter(),
+                        CsrfFilter.class)
+                .addFilterBefore(authenticationErrorFilter,
+                        UsernamePasswordAuthenticationFilter.class)
+                .addFilterBefore(jwtAuthenticationFilter,
+                        UsernamePasswordAuthenticationFilter.class)
+                .addFilterBefore(
+                    jwtUsernamePasswordAuthenticationFilter,
+                    UsernamePasswordAuthenticationFilter.class);
+
+        http
+                .exceptionHandling()
+                .authenticationEntryPoint(authenticationEntryPoint)
+                .accessDeniedHandler(accessDeniedHandler);
+
+        http.httpBasic().disable()
+                .csrf().disable()
+                .formLogin().disable()
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
         //role별 접근 권한 설정
-        http.authorizeRequests()
-                .antMatchers("/security/all").permitAll()
-                .antMatchers("/security/admin").access("hasRole('ROLE_ADMIN')")
-                .antMatchers("/security/member").access("hasAnyRole('ROLE_ADMIN', 'ROLE_MEMBER')");
+//        http.authorizeRequests()
+//                .antMatchers("/security/all").permitAll()
+//                .antMatchers("/security/admin").access("hasRole('ROLE_ADMIN')")
+//                .antMatchers("/security/member").access("hasAnyRole('ROLE_ADMIN', 'ROLE_MEMBER')");
+
+        http
+                .authorizeRequests() // 경로별 접근 권한 설정
+                .antMatchers(HttpMethod.OPTIONS).permitAll()
+                .antMatchers("/api/security/all").permitAll() // 모두 허용
+                .antMatchers("/api/security/member").access("hasRole('ROLE_MEMBER')") // ROLE_MEMBER 이상 접근 허용
+                .antMatchers("/api/security/admin").access("hasRole('ROLE_ADMIN')")
+                .anyRequest().authenticated();
 
         // 기본 로그인 화면 다시 활성화
         // http.formLogin();
