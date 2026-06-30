@@ -13,9 +13,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 @EnableWebMvc
 @ComponentScan(basePackages = {
-        "org.scoula.controller",
-        "org.scoula.exception",
-        "org.scoula.security.controller"
+        "org.scoula"
 })
 public class ServletConfig implements WebMvcConfigurer {
     //스프링 내부에서 사용하는 서블릿(jsp)와 관련된 설정하는 파일.
